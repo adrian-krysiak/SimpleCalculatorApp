@@ -3,7 +3,7 @@ version: 2.1
 executors:
   python-executor:
     docker:
-      - image: circleci/python:3.9  # Use Python 3.9 Docker image
+      - image: circleci/python:3.10  # Use Python 3.10 Docker image
     working_directory: ~/repo  # Working directory for project
     environment:
       PYTHONUNBUFFERED: "1"  # output is not buffered
