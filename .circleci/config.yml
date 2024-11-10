@@ -63,11 +63,11 @@ jobs:
           command: |
             . .venv/bin/activate
             flake8 . > lint_report.txt || true  # Redirect output to lint_report.txt and avoid failure
+          continue_on_fail: true  # Continue the job even if linting fails
       - store_artifacts:
           path: lint_report.txt  # Store linting report as an artifact
           destination: lint_reports
           when: always  # Ensure this step is always executed, even if linting fails
-    continue_on_fail: true  # Continue even if linting fails
 
   build_docker_image:
     executor: python-executor  # Use the python-executor defined above
