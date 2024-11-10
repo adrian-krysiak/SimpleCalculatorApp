@@ -13,7 +13,10 @@ jobs:
   install_dependencies:
     executor: python-executor
     steps:
-      - checkout  # Checks out code
+      - run:
+          name: Clone repository
+          command: |
+            git clone https://github.com/adrian-krysiak/SimpleCalculatorApp.git .  # Clone your repo into the current directory
       - run:
           name: Install dependencies
           command: |
@@ -25,7 +28,7 @@ jobs:
   run_tests:
     executor: python-executor
     steps:
-      - checkout
+      - checkout  # Checkout code (using CircleCI's default checkout)
       - run:
           name: Install dependencies
           command: |
@@ -48,7 +51,7 @@ jobs:
   lint_code:
     executor: python-executor
     steps:
-      - checkout
+      - checkout  # Checkout code (using CircleCI's default checkout)
       - run:
           name: Install flake8
           command: |
@@ -64,7 +67,7 @@ jobs:
   build_docker_image:
     executor: python-executor  # Use the python-executor defined above
     steps:
-      - checkout
+      - checkout  # Checkout code (using CircleCI's default checkout)
       - setup_remote_docker:
           docker_layer_caching: true  # Enable Docker layer caching for faster builds
       - run:
@@ -75,7 +78,7 @@ jobs:
   deploy:
     executor: python-executor
     steps:
-      - checkout
+      - checkout  # Checkout code (using CircleCI's default checkout)
       - run:
           name: Deploy application
           command: |
