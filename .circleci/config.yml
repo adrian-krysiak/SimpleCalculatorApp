@@ -42,10 +42,10 @@ jobs:
             . .venv/bin/activate
             python -m unittest discover tests
       - store_artifacts:
-          path: app.log
+          path: data/app.log
           destination: log
       - store_artifacts:
-          path: results.json
+          path: data/results.json
           destination: results
 
   lint_code:

@@ -4,7 +4,7 @@ import argparse
 import os
 import numpy as np
 # Setup logging
-logging.basicConfig(filename="app.log", level=logging.INFO,
+logging.basicConfig(filename="data/app.log", level=logging.INFO,
                     format="%(asctime)s - %(message)s")
 # Data persistence (results storage)
 RESULTS_FILE = os.path.join("data", "results.json")

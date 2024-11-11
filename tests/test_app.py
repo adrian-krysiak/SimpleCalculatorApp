@@ -1,5 +1,4 @@
 import unittest
-import subprocess
 from app import add, delete, multiply, divide, load_results, mean
 
 class TestCalculator(unittest.TestCase):
